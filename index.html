@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery beforeAfter.js: Before After Image Viewer Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="beforeafter.js"></script>
+   <style>
+    html,* { font-family: 'Inter'; box-sizing: border-box; }
+body { background-color: #fafafa; line-height:1.6;}
+.lead { font-size: 1.5rem; font-weight: 300; }
+.container { margin: 150px auto; max-width: 960px; }
+
+
+img{
+	object-fit: cover;
+	object-position: center;
+}
+
+.beforeAfter img.before{ 
+    filter: grayscale(1);
+}
+
+
+:root{
+	--height: 450px;
+}
+.beforeAfter,
+.beforeAfter img { 
+	height: var(--height);
+}
+
+@media(max-width: 1200px){
+	.beforeAfter,
+	.beforeAfter img { 
+		height: calc( var(--height) / 1.5 );
+	}
+}
+@media(max-width: 767px){
+	.beforeAfter,
+	.beforeAfter img { 
+		height: calc( var(--height) / 1.8 );
+	}
+}
+</style>
+</head>
+
+<body> 
+ 
+    <div class="container">
+ 
+          
+        <div class="beforeAfter">
+ 
+            <img class="before" src="natali-hordiiuk-DTYJck7Amm8-unsplash.jpg" />
+            <img src="natali-hordiiuk-DTYJck7Amm8-unsplash.jpg" />
+        </div>
+
+    </div>
+
+
+    <script>
+        $('.beforeAfter').beforeAfter({
+            movable: true,
+            clickMove: true,
+            position: 50,
+            separatorColor: '#fed100',
+            bulletColor: '#fed100' 
+        });
+    </script>
+    
+ 
+</body>
+
+</html>
